@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algo para ti</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #120b16, #26121f, #100b14);
+      color: white;
+      font-family: Georgia, "Times New Roman", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 520px;
+      text-align: center;
+    }
+
+    .intro {
+      animation: aparecer 1.5s ease;
+    }
+
+    .intro h1 {
+      font-size: 34px;
+      font-weight: normal;
+      margin-bottom: 15px;
+    }
+
+    .intro p {
+      color: #d6cbd2;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      margin-bottom: 35px;
+    }
+
+    button {
+      border: 1px solid rgba(255,255,255,.35);
+      background: rgba(255,255,255,.08);
+      color: white;
+      padding: 14px 35px;
+      border-radius: 40px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: .3s;
+      backdrop-filter: blur(10px);
+    }
+
+    button:hover {
+      background: rgba(255,255,255,.18);
+      transform: scale(1.05);
+    }
+
+    .carta {
+      display: none;
+      animation: aparecer 1.5s ease;
+    }
+
+    .carta h2 {
+      font-size: 28px;
+      font-weight: normal;
+      margin-bottom: 25px;
+    }
+
+    .carta p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #eee6eb;
+      margin-bottom: 18px;
+    }
+
+    .final {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #fff;
+    }
+
+    .corazon {
+      position: absolute;
+      opacity: .25;
+      animation: flotar 7s linear infinite;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes flotar {
+      from {
+        transform: translateY(110vh);
+      }
+      to {
+        transform: translateY(-20vh);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="corazon" style="left:10%; animation-delay:1s;">♡</div>
+  <div class="corazon" style="left:80%; animation-delay:3s;">♡</div>
+  <div class="corazon" style="left:50%; animation-delay:5s;">♡</div>
+
+  <div class="container">
+
+    <div class="intro" id="intro">
+      <h1>Tengo algo para ti…</h1>
+      <p>No es exactamente lo que probablemente estás pensando.</p>
+      <button onclick="abrirCarta()">Abrir</button>
+    </div>
+
+    <div class="carta" id="carta">
+
+      <h2>Para ti</h2>
+
+      <p>
+        Hay algo en ti que me llama la atención.
+      </p>
+
+      <p>
+        Sé que todavía no hemos compartido lo suficiente,
+        pero me das curiosidad y me gustaría conocerte un poco más.
+      </p>
+
+      <p>
+        Por eso quiero proponerte algo diferente:
+      </p>
+
+      <p>
+        <strong>un almuerzo o una cena, hecho por mí, para ti.</strong>
+      </p>
+
+      <p>
+        Sin mucha vuelta… tú, yo, buena comida y una conversación
+        que nos permita descubrir un poquito más el uno del otro.
+      </p>
+
+      <div class="final">
+        ✦
+      </div>
+
+    </div>
+
+  </div>
+
+  <audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function abrirCarta() {
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("carta").style.display = "block";
+
+      const musica = document.getElementById("musica");
+      musica.play().catch(() => {});
+    }
+  </script>
+
+</body>
+</html>
