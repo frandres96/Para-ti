@@ -8,6 +8,7 @@
   <title>33 años juntos</title>
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -21,17 +22,17 @@
     body {
       min-height: 100vh;
       background:
-        radial-gradient(circle at top, #3a2730 0%, #171217 45%, #09080b 100%);
-      color: #fff;
+        radial-gradient(circle at top, #4a303b 0%, #1b141a 45%, #09080b 100%);
+      color: white;
       font-family: Georgia, "Times New Roman", serif;
       overflow-x: hidden;
     }
 
-    /* CONTENEDOR PRINCIPAL */
+    /* CONTENEDOR */
 
     .page {
-      width: 100%;
       min-height: 100vh;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -57,16 +58,15 @@
     }
 
     .number {
-      font-size: 78px;
+      font-size: 80px;
       font-weight: normal;
-      letter-spacing: 4px;
+      letter-spacing: 5px;
       line-height: 1;
       margin-bottom: 12px;
-      text-shadow: 0 5px 25px rgba(255,255,255,.08);
     }
 
     .years {
-      font-size: 19px;
+      font-size: 18px;
       letter-spacing: 6px;
       text-transform: uppercase;
       color: #d8c8ce;
@@ -83,8 +83,8 @@
     .intro p {
       font-family: Arial, sans-serif;
       font-size: 14px;
-      color: #cfc4c9;
       line-height: 1.8;
+      color: #d0c5ca;
       margin-bottom: 38px;
     }
 
@@ -92,9 +92,8 @@
       border: 1px solid rgba(255,255,255,.4);
       background: rgba(255,255,255,.08);
       color: white;
-      padding: 15px 45px;
+      padding: 15px 48px;
       border-radius: 50px;
-      font-family: Arial, sans-serif;
       font-size: 15px;
       cursor: pointer;
       transition: .4s ease;
@@ -105,7 +104,6 @@
     button:hover {
       background: rgba(255,255,255,.18);
       transform: scale(1.06);
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
 
 
@@ -115,7 +113,7 @@
 
     .historia {
       display: none;
-      animation: aparecer 1.6s ease;
+      animation: aparecer 1.5s ease;
     }
 
 
@@ -125,32 +123,39 @@
 
     .foto {
       width: 100%;
-      max-width: 420px;
+      max-width: 430px;
       margin: 0 auto 42px;
       padding: 10px;
-      background: #f5eeee;
+      background: #f7eeee;
       box-shadow:
         0 20px 55px rgba(0,0,0,.5),
-        0 5px 15px rgba(0,0,0,.2);
+        0 5px 15px rgba(0,0,0,.25);
 
-      transform: rotate(-1deg);
-      animation: entradaFoto 1.5s ease;
+      animation: fotoEntrada 1.4s ease;
     }
 
     .foto img {
       width: 100%;
       height: auto;
-      max-height: 520px;
+      max-height: 560px;
       display: block;
       object-fit: cover;
     }
 
-    .foto:nth-of-type(2) {
-      transform: rotate(1.2deg);
+    .foto1 {
+      transform: rotate(-1deg);
     }
 
-    .foto:nth-of-type(3) {
-      transform: rotate(-1.5deg);
+    .foto2 {
+      transform: rotate(1deg);
+    }
+
+    .foto3 {
+      transform: rotate(-1.3deg);
+    }
+
+    .foto4 {
+      transform: rotate(1deg);
     }
 
 
@@ -159,7 +164,7 @@
        ========================= */
 
     .texto {
-      margin-bottom: 48px;
+      margin-bottom: 45px;
     }
 
     .texto h2 {
@@ -176,10 +181,9 @@
     }
 
     .separador {
-      font-size: 19px;
+      font-size: 20px;
       color: #d6bdc6;
       margin: 30px 0 38px;
-      opacity: .8;
     }
 
 
@@ -194,8 +198,8 @@
 
     .final h2 {
       font-size: 31px;
-      font-weight: normal;
       line-height: 1.45;
+      font-weight: normal;
       margin-bottom: 27px;
     }
 
@@ -207,7 +211,7 @@
 
     .firma {
       margin-top: 38px;
-      font-size: 22px;
+      font-size: 23px;
       font-style: italic;
       color: #d9c5cc;
     }
@@ -230,97 +234,127 @@
     .corazones span {
       position: absolute;
       bottom: -50px;
-      color: rgba(255, 220, 230, .30);
-      font-size: 22px;
-      animation: flotarCorazon linear infinite;
-      user-select: none;
+      color: rgba(255,220,230,.30);
+      animation: flotar linear infinite;
     }
 
     .corazones span:nth-child(1) {
       left: 5%;
       font-size: 20px;
       animation-duration: 12s;
-      animation-delay: 0s;
     }
 
     .corazones span:nth-child(2) {
       left: 14%;
       font-size: 15px;
       animation-duration: 17s;
-      animation-delay: 3s;
-    }
-
-    .corazones span:nth-child(3) {
-      left: 23%;
-      font-size: 27px;
-      animation-duration: 13s;
-      animation-delay: 6s;
-    }
-
-    .corazones span:nth-child(4) {
-      left: 33%;
-      font-size: 18px;
-      animation-duration: 18s;
       animation-delay: 2s;
     }
 
-    .corazones span:nth-child(5) {
-      left: 43%;
-      font-size: 24px;
-      animation-duration: 14s;
+    .corazones span:nth-child(3) {
+      left: 24%;
+      font-size: 27px;
+      animation-duration: 13s;
       animation-delay: 5s;
     }
 
+    .corazones span:nth-child(4) {
+      left: 34%;
+      font-size: 18px;
+      animation-duration: 18s;
+      animation-delay: 3s;
+    }
+
+    .corazones span:nth-child(5) {
+      left: 44%;
+      font-size: 25px;
+      animation-duration: 14s;
+      animation-delay: 6s;
+    }
+
     .corazones span:nth-child(6) {
-      left: 53%;
-      font-size: 15px;
+      left: 54%;
+      font-size: 16px;
       animation-duration: 17s;
       animation-delay: 1s;
     }
 
     .corazones span:nth-child(7) {
-      left: 63%;
+      left: 64%;
       font-size: 28px;
       animation-duration: 13s;
       animation-delay: 7s;
     }
 
     .corazones span:nth-child(8) {
-      left: 73%;
+      left: 74%;
       font-size: 18px;
       animation-duration: 16s;
       animation-delay: 4s;
     }
 
     .corazones span:nth-child(9) {
-      left: 82%;
+      left: 83%;
       font-size: 25px;
       animation-duration: 14s;
       animation-delay: 8s;
     }
 
     .corazones span:nth-child(10) {
-      left: 91%;
+      left: 92%;
       font-size: 17px;
       animation-duration: 18s;
       animation-delay: 2s;
     }
 
     .corazones span:nth-child(11) {
-      left: 29%;
+      left: 30%;
       font-size: 14px;
       animation-duration: 15s;
       animation-delay: 9s;
     }
 
     .corazones span:nth-child(12) {
-      left: 59%;
+      left: 60%;
       font-size: 20px;
       animation-duration: 19s;
       animation-delay: 11s;
     }
 
-    @keyframes flotarCorazon {
+
+    /* =========================
+       ANIMACIONES
+       ========================= */
+
+    @keyframes aparecer {
+
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    @keyframes fotoEntrada {
+
+      from {
+        opacity: 0;
+        transform: scale(.90);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+    }
+
+    @keyframes flotar {
 
       0% {
         transform:
@@ -351,38 +385,6 @@
           rotate(-10deg);
 
         opacity: 0;
-      }
-    }
-
-
-    /* =========================
-       ANIMACIONES
-       ========================= */
-
-    @keyframes aparecer {
-
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-    }
-
-    @keyframes entradaFoto {
-
-      from {
-        opacity: 0;
-        transform: scale(.90) rotate(0deg);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1) rotate(-1deg);
       }
 
     }
@@ -434,10 +436,6 @@
         padding: 8px;
       }
 
-      button {
-        padding: 14px 40px;
-      }
-
     }
 
   </style>
@@ -469,13 +467,17 @@
   </div>
 
 
+  <!-- =========================
+       CONTENIDO
+       ========================= -->
+
   <div class="page">
 
     <div class="container">
 
 
       <!-- =========================
-           INTRO
+           PORTADA
            ========================= -->
 
       <div class="intro" id="intro">
@@ -514,17 +516,17 @@
 
         <!-- FOTO 1 -->
 
-        <div class="foto">
+        <div class="foto foto1">
 
           <img
             src="foto1.jpg"
-            alt="Un recuerdo especial"
+            alt="Primer recuerdo"
           >
 
         </div>
 
 
-        <!-- PRIMER MENSAJE -->
+        <!-- TEXTO 1 -->
 
         <div class="texto">
 
@@ -554,17 +556,17 @@
 
         <!-- FOTO 2 -->
 
-        <div class="foto">
+        <div class="foto foto2">
 
           <img
             src="foto2.jpg"
-            alt="Un recuerdo de nuestra familia"
+            alt="Recuerdo de nuestra historia"
           >
 
         </div>
 
 
-        <!-- SEGUNDO MENSAJE -->
+        <!-- TEXTO 2 -->
 
         <div class="texto">
 
@@ -594,17 +596,17 @@
 
         <!-- FOTO 3 -->
 
-        <div class="foto">
+        <div class="foto foto3">
 
           <img
             src="foto3.jpg"
-            alt="Un recuerdo especial"
+            alt="Recuerdo familiar"
           >
 
         </div>
 
 
-        <!-- TERCER MENSAJE -->
+        <!-- TEXTO 3 -->
 
         <div class="texto">
 
@@ -623,14 +625,29 @@
         </div>
 
 
-        <!-- =========================
-             FINAL
-             ========================= -->
+        <div class="separador">
+          ✦
+        </div>
+
+
+        <!-- FOTO 4 -->
+
+        <div class="foto foto4">
+
+          <img
+            src="foto4.jpg"
+            alt="Nuestro recuerdo más especial"
+          >
+
+        </div>
+
+
+        <!-- FINAL -->
 
         <div class="final">
 
           <h2>
-            Feliz 33.º aniversario,
+            Feliz 33.º aniversario,<br>
             mi negra bella.
           </h2>
 
@@ -676,30 +693,28 @@
 
     function abrirHistoria() {
 
-      /* Ocultar pantalla inicial */
+      /* Ocultar portada */
 
       document.getElementById("intro").style.display = "none";
 
 
-      /* Mostrar carta */
+      /* Mostrar historia */
 
       document.getElementById("historia").style.display = "block";
 
 
-      /* Reproducir música */
+      /* Intentar reproducir música */
 
       const musica = document.getElementById("musica");
 
       musica.play().catch(function() {
 
-        console.log(
-          "El navegador bloqueó la reproducción automática."
-        );
+        console.log("El navegador bloqueó el audio.");
 
       });
 
 
-      /* Regresar al principio */
+      /* Volver arriba */
 
       window.scrollTo({
         top: 0,
