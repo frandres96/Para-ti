@@ -1,9 +1,11 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Algo para ti</title>
+
+  <title>33 años juntos</title>
 
   <style>
     * {
@@ -12,170 +14,703 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #120b16, #26121f, #100b14);
-      color: white;
+      background:
+        radial-gradient(circle at top, #3a2730 0%, #171217 45%, #09080b 100%);
+      color: #fff;
       font-family: Georgia, "Times New Roman", serif;
+      overflow-x: hidden;
+    }
+
+    /* CONTENEDOR PRINCIPAL */
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      padding: 40px 20px;
+      position: relative;
     }
 
     .container {
-      width: 90%;
-      max-width: 520px;
+      width: 100%;
+      max-width: 560px;
       text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
+
+    /* =========================
+       PANTALLA INICIAL
+       ========================= */
+
     .intro {
-      animation: aparecer 1.5s ease;
+      animation: aparecer 2s ease;
+    }
+
+    .number {
+      font-size: 78px;
+      font-weight: normal;
+      letter-spacing: 4px;
+      line-height: 1;
+      margin-bottom: 12px;
+      text-shadow: 0 5px 25px rgba(255,255,255,.08);
+    }
+
+    .years {
+      font-size: 19px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: #d8c8ce;
+      margin-bottom: 30px;
     }
 
     .intro h1 {
-      font-size: 34px;
+      font-size: 30px;
       font-weight: normal;
-      margin-bottom: 15px;
+      line-height: 1.45;
+      margin-bottom: 18px;
     }
 
     .intro p {
-      color: #d6cbd2;
       font-family: Arial, sans-serif;
-      font-size: 15px;
-      margin-bottom: 35px;
+      font-size: 14px;
+      color: #cfc4c9;
+      line-height: 1.8;
+      margin-bottom: 38px;
     }
 
     button {
-      border: 1px solid rgba(255,255,255,.35);
+      border: 1px solid rgba(255,255,255,.4);
       background: rgba(255,255,255,.08);
       color: white;
-      padding: 14px 35px;
-      border-radius: 40px;
+      padding: 15px 45px;
+      border-radius: 50px;
+      font-family: Arial, sans-serif;
       font-size: 15px;
       cursor: pointer;
-      transition: .3s;
+      transition: .4s ease;
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     button:hover {
       background: rgba(255,255,255,.18);
-      transform: scale(1.05);
+      transform: scale(1.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
 
-    .carta {
+
+    /* =========================
+       HISTORIA
+       ========================= */
+
+    .historia {
       display: none;
-      animation: aparecer 1.5s ease;
+      animation: aparecer 1.6s ease;
     }
 
-    .carta h2 {
-      font-size: 28px;
+
+    /* =========================
+       FOTOS
+       ========================= */
+
+    .foto {
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto 42px;
+      padding: 10px;
+      background: #f5eeee;
+      box-shadow:
+        0 20px 55px rgba(0,0,0,.5),
+        0 5px 15px rgba(0,0,0,.2);
+
+      transform: rotate(-1deg);
+      animation: entradaFoto 1.5s ease;
+    }
+
+    .foto img {
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .foto:nth-of-type(2) {
+      transform: rotate(1.2deg);
+    }
+
+    .foto:nth-of-type(3) {
+      transform: rotate(-1.5deg);
+    }
+
+
+    /* =========================
+       TEXTOS
+       ========================= */
+
+    .texto {
+      margin-bottom: 48px;
+    }
+
+    .texto h2 {
+      font-size: 29px;
       font-weight: normal;
-      margin-bottom: 25px;
+      margin-bottom: 24px;
     }
 
-    .carta p {
+    .texto p {
       font-size: 18px;
-      line-height: 1.8;
-      color: #eee6eb;
-      margin-bottom: 18px;
+      line-height: 1.9;
+      color: #eee7ea;
+      margin-bottom: 19px;
     }
+
+    .separador {
+      font-size: 19px;
+      color: #d6bdc6;
+      margin: 30px 0 38px;
+      opacity: .8;
+    }
+
+
+    /* =========================
+       FINAL
+       ========================= */
 
     .final {
       margin-top: 30px;
-      font-size: 20px;
-      color: #fff;
+      padding-bottom: 70px;
     }
 
-    .corazon {
-      position: absolute;
-      opacity: .25;
-      animation: flotar 7s linear infinite;
+    .final h2 {
+      font-size: 31px;
+      font-weight: normal;
+      line-height: 1.45;
+      margin-bottom: 27px;
     }
+
+    .final p {
+      font-size: 18px;
+      line-height: 1.9;
+      color: #eee7ea;
+    }
+
+    .firma {
+      margin-top: 38px;
+      font-size: 22px;
+      font-style: italic;
+      color: #d9c5cc;
+    }
+
+
+    /* =========================
+       CORAZONES FLOTANDO
+       ========================= */
+
+    .corazones {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .corazones span {
+      position: absolute;
+      bottom: -50px;
+      color: rgba(255, 220, 230, .30);
+      font-size: 22px;
+      animation: flotarCorazon linear infinite;
+      user-select: none;
+    }
+
+    .corazones span:nth-child(1) {
+      left: 5%;
+      font-size: 20px;
+      animation-duration: 12s;
+      animation-delay: 0s;
+    }
+
+    .corazones span:nth-child(2) {
+      left: 14%;
+      font-size: 15px;
+      animation-duration: 17s;
+      animation-delay: 3s;
+    }
+
+    .corazones span:nth-child(3) {
+      left: 23%;
+      font-size: 27px;
+      animation-duration: 13s;
+      animation-delay: 6s;
+    }
+
+    .corazones span:nth-child(4) {
+      left: 33%;
+      font-size: 18px;
+      animation-duration: 18s;
+      animation-delay: 2s;
+    }
+
+    .corazones span:nth-child(5) {
+      left: 43%;
+      font-size: 24px;
+      animation-duration: 14s;
+      animation-delay: 5s;
+    }
+
+    .corazones span:nth-child(6) {
+      left: 53%;
+      font-size: 15px;
+      animation-duration: 17s;
+      animation-delay: 1s;
+    }
+
+    .corazones span:nth-child(7) {
+      left: 63%;
+      font-size: 28px;
+      animation-duration: 13s;
+      animation-delay: 7s;
+    }
+
+    .corazones span:nth-child(8) {
+      left: 73%;
+      font-size: 18px;
+      animation-duration: 16s;
+      animation-delay: 4s;
+    }
+
+    .corazones span:nth-child(9) {
+      left: 82%;
+      font-size: 25px;
+      animation-duration: 14s;
+      animation-delay: 8s;
+    }
+
+    .corazones span:nth-child(10) {
+      left: 91%;
+      font-size: 17px;
+      animation-duration: 18s;
+      animation-delay: 2s;
+    }
+
+    .corazones span:nth-child(11) {
+      left: 29%;
+      font-size: 14px;
+      animation-duration: 15s;
+      animation-delay: 9s;
+    }
+
+    .corazones span:nth-child(12) {
+      left: 59%;
+      font-size: 20px;
+      animation-duration: 19s;
+      animation-delay: 11s;
+    }
+
+    @keyframes flotarCorazon {
+
+      0% {
+        transform:
+          translateY(0)
+          translateX(0)
+          rotate(0deg);
+
+        opacity: 0;
+      }
+
+      10% {
+        opacity: .35;
+      }
+
+      50% {
+        transform:
+          translateY(-50vh)
+          translateX(25px)
+          rotate(10deg);
+
+        opacity: .25;
+      }
+
+      100% {
+        transform:
+          translateY(-115vh)
+          translateX(-25px)
+          rotate(-10deg);
+
+        opacity: 0;
+      }
+    }
+
+
+    /* =========================
+       ANIMACIONES
+       ========================= */
 
     @keyframes aparecer {
+
       from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(25px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
+
     }
 
-    @keyframes flotar {
+    @keyframes entradaFoto {
+
       from {
-        transform: translateY(110vh);
+        opacity: 0;
+        transform: scale(.90) rotate(0deg);
       }
+
       to {
-        transform: translateY(-20vh);
+        opacity: 1;
+        transform: scale(1) rotate(-1deg);
       }
+
     }
+
+
+    /* =========================
+       CELULARES
+       ========================= */
+
+    @media (max-width: 600px) {
+
+      .page {
+        padding: 35px 18px;
+      }
+
+      .number {
+        font-size: 62px;
+      }
+
+      .years {
+        font-size: 15px;
+        letter-spacing: 4px;
+      }
+
+      .intro h1 {
+        font-size: 25px;
+      }
+
+      .intro p {
+        font-size: 13px;
+      }
+
+      .texto h2 {
+        font-size: 25px;
+      }
+
+      .texto p,
+      .final p {
+        font-size: 17px;
+        line-height: 1.85;
+      }
+
+      .final h2 {
+        font-size: 27px;
+      }
+
+      .foto {
+        max-width: 360px;
+        padding: 8px;
+      }
+
+      button {
+        padding: 14px 40px;
+      }
+
+    }
+
   </style>
 </head>
 
+
 <body>
 
-  <div class="corazon" style="left:10%; animation-delay:1s;">♡</div>
-  <div class="corazon" style="left:80%; animation-delay:3s;">♡</div>
-  <div class="corazon" style="left:50%; animation-delay:5s;">♡</div>
 
-  <div class="container">
+  <!-- =========================
+       CORAZONES
+       ========================= -->
 
-    <div class="intro" id="intro">
-      <h1>Tengo algo para ti…</h1>
-      <p>No es exactamente lo que probablemente estás pensando.</p>
-      <button onclick="abrirCarta()">Abrir</button>
-    </div>
+  <div class="corazones">
 
-    <div class="carta" id="carta">
+    <span>♡</span>
+    <span>♡</span>
+    <span>♡</span>
+    <span>♡</span>
+    <span>♡</span>
+    <span>♡</span>
+    <span>♡</span>
+    <span>♡</span>
+    <span>♡</span>
+    <span>♡</span>
+    <span>♡</span>
+    <span>♡</span>
 
-      <h2>Para ti</h2>
+  </div>
 
-      <p>
-        Hay algo en ti que me llama la atención.
-      </p>
 
-      <p>
-        Sé que todavía no hemos compartido lo suficiente,
-        pero me das curiosidad y me gustaría conocerte un poco más.
-      </p>
+  <div class="page">
 
-      <p>
-        Por eso quiero proponerte algo diferente:
-      </p>
+    <div class="container">
 
-      <p>
-        <strong>un almuerzo o una cena, hecho por mí, para ti.</strong>
-      </p>
 
-      <p>
-        Sin mucha vuelta… tú, yo, buena comida y una conversación
-        que nos permita descubrir un poquito más el uno del otro.
-      </p>
+      <!-- =========================
+           INTRO
+           ========================= -->
 
-      <div class="final">
-        ✦
+      <div class="intro" id="intro">
+
+        <div class="number">
+          33
+        </div>
+
+        <div class="years">
+          años juntos
+        </div>
+
+        <h1>
+          Una historia que todavía<br>
+          merece ser celebrada.
+        </h1>
+
+        <p>
+          Hay recuerdos que el tiempo no borra.<br>
+          Los convierte en parte de una historia.
+        </p>
+
+        <button onclick="abrirHistoria()">
+          Abrir
+        </button>
+
+      </div>
+
+
+      <!-- =========================
+           CARTA
+           ========================= -->
+
+      <div class="historia" id="historia">
+
+
+        <!-- FOTO 1 -->
+
+        <div class="foto">
+
+          <img
+            src="foto1.jpg"
+            alt="Un recuerdo especial"
+          >
+
+        </div>
+
+
+        <!-- PRIMER MENSAJE -->
+
+        <div class="texto">
+
+          <h2>
+            Para Sandra
+          </h2>
+
+          <p>
+            Mi amor, hoy celebramos mucho más
+            que 33 años de casados.
+          </p>
+
+          <p>
+            Celebramos todos esos años en los que
+            hemos compartido sueños, momentos felices,
+            dificultades, risas, aprendizajes y tantos
+            recuerdos que forman parte de nuestra historia.
+          </p>
+
+        </div>
+
+
+        <div class="separador">
+          ✦
+        </div>
+
+
+        <!-- FOTO 2 -->
+
+        <div class="foto">
+
+          <img
+            src="foto2.jpg"
+            alt="Un recuerdo de nuestra familia"
+          >
+
+        </div>
+
+
+        <!-- SEGUNDO MENSAJE -->
+
+        <div class="texto">
+
+          <p>
+            Pero, sobre todo, celebramos la bonita
+            familia que hemos construido juntos.
+          </p>
+
+          <p>
+            Cuando miro hacia atrás, veo mucho más
+            que el paso del tiempo.
+          </p>
+
+          <p>
+            Veo una vida compartida, un hogar,
+            una familia y tantos momentos que hoy
+            tienen un valor aún más especial.
+          </p>
+
+        </div>
+
+
+        <div class="separador">
+          ✦
+        </div>
+
+
+        <!-- FOTO 3 -->
+
+        <div class="foto">
+
+          <img
+            src="foto3.jpg"
+            alt="Un recuerdo especial"
+          >
+
+        </div>
+
+
+        <!-- TERCER MENSAJE -->
+
+        <div class="texto">
+
+          <p>
+            Gracias por haber estado a mi lado durante
+            todos estos años, por cada momento compartido
+            y por todo lo que hemos construido juntos.
+          </p>
+
+          <p>
+            33 años después, sigo agradeciendo aquel día
+            en que nuestras vidas decidieron caminar
+            en la misma dirección.
+          </p>
+
+        </div>
+
+
+        <!-- =========================
+             FINAL
+             ========================= -->
+
+        <div class="final">
+
+          <h2>
+            Feliz 33.º aniversario,
+            mi negra bella.
+          </h2>
+
+          <p>
+            Por nuestra historia, por nuestra familia
+            y por todos los capítulos que todavía
+            nos quedan por vivir juntos.
+          </p>
+
+          <div class="firma">
+            Te amo.
+          </div>
+
+        </div>
+
+
       </div>
 
     </div>
 
   </div>
 
+
+  <!-- =========================
+       MÚSICA
+       ========================= -->
+
   <audio id="musica" loop>
-    <source src="musica.m4a" type="audio/mp4">
+
+    <source
+      src="musica.m4a"
+      type="audio/mp4"
+    >
+
   </audio>
 
+
+  <!-- =========================
+       JAVASCRIPT
+       ========================= -->
+
   <script>
-    function abrirCarta() {
+
+    function abrirHistoria() {
+
+      /* Ocultar pantalla inicial */
+
       document.getElementById("intro").style.display = "none";
-      document.getElementById("carta").style.display = "block";
+
+
+      /* Mostrar carta */
+
+      document.getElementById("historia").style.display = "block";
+
+
+      /* Reproducir música */
 
       const musica = document.getElementById("musica");
-      musica.play().catch(() => {});
+
+      musica.play().catch(function() {
+
+        console.log(
+          "El navegador bloqueó la reproducción automática."
+        );
+
+      });
+
+
+      /* Regresar al principio */
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
     }
+
   </script>
+
 
 </body>
 </html>
+```
